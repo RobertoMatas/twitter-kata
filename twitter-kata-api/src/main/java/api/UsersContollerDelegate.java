@@ -70,8 +70,7 @@ public class UsersContollerDelegate {
 				String name = request.params(":name");
 				response.type("application/json");
 				try {
-					User user = userMapper.map(service.getBy(name));
-					return user;
+					return userMapper.map(service.getBy(name));
 
 				} catch (UserNotExitsException e) {
 					return userNotExists(response, e);
