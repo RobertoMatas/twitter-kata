@@ -7,7 +7,5 @@ public interface UserRepository {
 	User find(String name);
 
 	void save(User user);
-	
-	void commit();
 
 }

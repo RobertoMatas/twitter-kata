@@ -14,9 +14,15 @@ public class PersistentUserRepository implements UserRepository {
 
 	HashSet<User> users;
 
-	final String store = System.getProperty("java.io.tmpdir") + "users.ser";
+	String store;
 
+	public PersistentUserRepository(final String storageName) {
+		store = System.getProperty("java.io.tmpdir") + storageName;
+		initFromFileSystem();
+	}
+	
 	public PersistentUserRepository() {
+		store = System.getProperty("java.io.tmpdir") + "users.ser";
 		initFromFileSystem();
 	}
 
@@ -47,7 +53,7 @@ public class PersistentUserRepository implements UserRepository {
 			return inputStreamForFile(file);
 		} else {
 			file.createNewFile();
-			users = new HashSet<>(0);
+			users = new HashSet<User>(0);
 			persist();
 			return inputStreamForFile(file);
 		}
@@ -109,11 +115,5 @@ public class PersistentUserRepository implements UserRepository {
 	public void deleteAll() {
 		users.clear();
 		persist();
-	}
-
-	@Override
-	public void commit() {
-		persist();
-
 	}
 }

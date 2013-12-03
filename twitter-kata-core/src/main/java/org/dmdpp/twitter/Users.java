@@ -1,11 +1,11 @@
 package org.dmdpp.twitter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Users implements UserRepository {
 
-	List<User> users = new ArrayList<User>();
+	Set<User> users = new HashSet<User>();
 
 	@Override
 	public void save(User user) {
@@ -26,8 +26,4 @@ public class Users implements UserRepository {
 		}
 		throw new UserNotExitsException(name);
 	}
-
-	@Override
-	public void commit() {	}
-
 }

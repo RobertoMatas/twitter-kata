@@ -12,7 +12,7 @@ public class PersistentUserRepositoryTest {
 
 	@Before
 	public void setUp() {
-		userRepository = new PersistentUserRepository();
+		userRepository = new PersistentUserRepository("test-users.ser");
 		User user = new User("@rober");		
 		User user2 = new User("@pasku1");
 		userRepository.save(user);

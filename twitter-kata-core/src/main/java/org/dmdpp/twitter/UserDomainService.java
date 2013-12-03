@@ -10,13 +10,13 @@ public class UserDomainService {
 		this.userRepository = userRepository;
 	}
 
-	public void newFollowRelation(String user, String userToFollow) {
-		User u = userRepository.find(user);
-		User utf = userRepository.find(userToFollow);
+	public void newFollowRelation(String userName, String userNameToFollow) {
+		User user = userRepository.find(userName);
+		User userToFollow = userRepository.find(userNameToFollow);
 		
-		u.follow(utf);
+		user.follow(userToFollow);
 		
-		userRepository.commit();
+		userRepository.save(user);
 	}
 	
 	public void register(String name) {

@@ -3,6 +3,7 @@ package org.dmdpp.twitter;
 import static org.dmdpp.twitter.Fixtures.repositoryWithOneUser;
 import static org.dmdpp.twitter.Fixtures.repositoryWithOneUserAndTwoFollowings;
 import static org.dmdpp.twitter.Fixtures.repositoryWithTwoUser;
+import static org.dmdpp.twitter.Fixtures.userWithTwoFollowings;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
@@ -33,7 +34,7 @@ public class UserRegistrationTest {
 
 	@Test
 	public void guessUserFollowing() {
-		User user = Fixtures.userWithTwoFollowings();
+		User user = userWithTwoFollowings();
 
 		assertTrue(user.followins().size() == 2);
 	}
