@@ -12,11 +12,11 @@ public class User implements Serializable {
 	private static final long serialVersionUID = -3201256639969196051L;
 	
 	String name;
-	private Set<User> followins;
+	private Set<User> following;
 
 	public User(String name) {
 		this.name = name;
-		this.followins = new HashSet<User>();
+		this.following = new HashSet<User>();
 	}
 
 	@Override
@@ -45,16 +45,20 @@ public class User implements Serializable {
 	}
 
 	public void follow(User userToFollow) {
-		followins.add(userToFollow);
+		following.add(userToFollow);
 		
 	}
 
 	public boolean followsUser(String name) {
-		return followins.contains(new User(name));
+		return following.contains(new User(name));
 	}
 
-	public Set<User> followins() {
-		return this.followins;
+	public Set<User> following() {
+		return this.following;
+	}
+	
+	public String name() {
+		return name;
 	}
 
 	@Override

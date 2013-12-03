@@ -1,7 +1,7 @@
 package commands;
 
 public enum Actions {
-	exit("exit"), follow("follow <user> <userToFollow>"), followings("followings <user>"), register("register <user>");
+	exit("exit"), follow("follow <user> <userToFollow>"), following("following <user>"), register("register <user>");
 	
 	public final String desc;
 	

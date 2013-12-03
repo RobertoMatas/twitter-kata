@@ -14,7 +14,7 @@ public class PersistentUserRepository implements UserRepository {
 
 	HashSet<User> users;
 
-	String store;
+	final String store;
 
 	public PersistentUserRepository(final String storageName) {
 		store = System.getProperty("java.io.tmpdir") + storageName;

@@ -1,6 +1,6 @@
 import static commands.Actions.exit;
 import static commands.Actions.follow;
-import static commands.Actions.followings;
+import static commands.Actions.following;
 import static commands.Actions.register;
 import static java.lang.System.err;
 import static java.lang.System.out;
@@ -66,8 +66,8 @@ public class Main {
 			register(command);
 		} else if (follow.toString().equals(command[0])) {
 			followOp(command);
-		} else if (followings.toString().equals(command[0])) {
-			followings(command);
+		} else if (following.toString().equals(command[0])) {
+			following(command);
 		} else {
 			error();
 		}
@@ -78,7 +78,7 @@ public class Main {
 		out.println("Registrado usuario: " + command[1]);
 	}
 
-	private static void followings(String[] command) {
+	private static void following(String[] command) {
 		out.println(command[1] + " sigue a " + service.followedBy(command[1]));
 	}
 

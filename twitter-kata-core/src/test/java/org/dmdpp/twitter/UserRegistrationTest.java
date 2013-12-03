@@ -36,7 +36,7 @@ public class UserRegistrationTest {
 	public void guessUserFollowing() {
 		User user = userWithTwoFollowings();
 
-		assertTrue(user.followins().size() == 2);
+		assertTrue(user.following().size() == 2);
 	}
 
 	@Test
