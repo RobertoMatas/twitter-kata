@@ -1,29 +1,27 @@
 package dto;
 
-import static java.lang.String.format;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import api.RestUriBuilder;
+
 public class User {
 
+	public static final String USERS = "users";
+
 	public final String id;
-	
+
 	public final String name;
 
 	public final List<Link> links;
 
-	private transient final String followingLinkTemplate = "http://localhost:4567/users/%s/following";
-	
-	private transient final String uriLinkTemplate = "http://localhost:4567/users/%s";
-
-	public User(final String name) {
+	protected User(final String name, final RestUriBuilder uriBuilder) {
 		this.name = name;
-		this.id = format(uriLinkTemplate, name);
+		this.id = uriBuilder.entityUri(USERS, name);
 		this.links = new ArrayList<Link>(1);
-		this.links.add(new Link("following", format(followingLinkTemplate, name)));
+		this.links.add(uriBuilder.relationLink(id, "following"));
 	}
-	
+
 	public String followingLink() {
 		return this.links.get(0).link;
 	}
